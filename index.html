@@ -29,7 +29,7 @@
         }
 
         body {
-            font-family: 'Norelli', 'Courier New', monospace;
+            font-family: Georgia, 'Times New Roman', serif;
             font-size: 14px;
             line-height: 1.6;
             color: #1a1a1a;
@@ -357,6 +357,22 @@
             border-color: #e88ae8;
         }
 
+        /* --- Scrolling Cover Image --- */
+        .scroll-img {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            overflow-x: auto;
+            overflow-y: hidden;
+            background: #f5f5f5;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .scroll-img img {
+            height: 100%;
+            max-width: none;
+            display: block;
+        }
+
         /* --- Footer --- */
         .divider {
             border: none;
@@ -469,6 +485,7 @@
             <li><a href="#social-video">social video</a></li>
             <li><a href="#writing">writing</a></li>
             <li><a href="#video">video &amp; documentary</a></li>
+            <li><a href="#tools">tools</a></li>
         </ul>
     </nav>
 
@@ -495,6 +512,20 @@
                     <div class="repo-links">
                         <a href="https://github.com/AreebaFatimaa/nicar-lightning-talks-2010-to-2025">repo</a>
                         <a href="https://areebafatimaa.github.io/nicar-lightning-talks-2010-to-2025/">live site</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="repo-card">
+                <div class="scroll-img">
+                    <img src="images/kalshi-polymarket-iran.png" alt="Kalshi v Polymarket: Deconstructing War-Time Bets">
+                </div>
+                <div class="card-body">
+                    <h3>kalshi-polymarket-iran</h3>
+                    <p>Kalshi v Polymarket: Deconstructing war-time bets &mdash; comparing how prediction market platforms handled betting during geopolitical crises involving Iran.</p>
+                    <div class="repo-links">
+                        <a href="https://github.com/AreebaFatimaa/kalshi-polymarket-iran">repo</a>
+                        <a href="https://areebafatimaa.github.io/kalshi-polymarket-iran/">live site</a>
                     </div>
                 </div>
             </div>
@@ -786,6 +817,22 @@
                 <div class="card-body">
                     <h3>Mermaiding: The Siren Scientist</h3>
                     <div class="card-meta"><span class="pub">Dreams Are Made Of</span> &middot; September 2025</div>
+                </div>
+            </a>
+
+        </div>
+    </div>
+
+    <!-- ==================== TOOLS ==================== -->
+    <div class="section" id="tools">
+        <h2 class="section-title">Tools</h2>
+        <div class="card-grid">
+
+            <a class="card" href="https://editorial-board.vercel.app">
+                <div class="card-img"><img src="images/magi-screenshot.png" alt="MAGI: AI-Powered Editorial Board"></div>
+                <div class="card-body">
+                    <h3>MAGI: AI-Powered Editorial Board</h3>
+                    <div class="card-meta">A tool that simulates an editorial board using multiple AI models to review and analyze articles from different perspectives.</div>
                 </div>
             </a>
 
