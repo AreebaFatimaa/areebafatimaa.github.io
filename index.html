@@ -438,6 +438,10 @@
             color: #e88ae8;
         }
 
+        .section:not(.expanded) .card-hidden {
+            display: none;
+        }
+
         /* --- Responsive --- */
         @media (max-width: 640px) {
             .container {
@@ -513,13 +517,17 @@
         <h2 class="section-title">Tools</h2>
         <div class="card-grid">
 
-            <a class="card" href="https://editorial-board.vercel.app">
+            <div class="repo-card">
                 <div class="card-img"><img src="images/magi-screenshot.png" alt="MAGI: AI-Powered Editorial Board"></div>
                 <div class="card-body">
                     <h3>MAGI: AI-Powered Editorial Board</h3>
-                    <div class="card-meta">A tool that simulates an editorial board using multiple AI models to review and analyze articles from different perspectives.</div>
+                    <p>A tool that simulates an editorial board using multiple AI models to review and analyze articles from different perspectives.</p>
+                    <div class="repo-links">
+                        <a href="https://github.com/AreebaFatimaa/MAGI-editorial-board">repo</a>
+                        <a href="https://editorial-board.vercel.app">live site</a>
+                    </div>
                 </div>
-            </a>
+            </div>
 
             <div class="repo-card">
                 <div class="card-img"><img src="images/d3-dashboard-screenshot.png" alt="Defense vs. Forest, Cropland & Grassland"></div>
@@ -601,6 +609,10 @@
                 <div class="card-body">
                     <h3>Worrying levels of support for terrorist organisations on Facebook</h3>
                     <div class="card-meta"><span class="pub">Digital Rights Monitor</span> &middot; April 2021</div>
+                    <div class="card-tags">
+                        <span class="tag">open-source research</span>
+                        <span class="tag">social media analysis</span>
+                    </div>
                 </div>
             </a>
 
@@ -769,6 +781,14 @@
     <div class="section" id="writing">
         <h2 class="section-title">Writing</h2>
         <div class="card-grid">
+
+            <a class="card" href="https://zeteo.com/p/iran-diplomacy-pakistan-home-demolitions?utm_source=publication-search">
+                <div class="card-img"><img src="images/zeteo-iran-pakistan.jpg" alt="In the Shadow of Iran Diplomacy, Pakistan Bulldozes Hundreds of Homes of the Poor"></div>
+                <div class="card-body">
+                    <h3>In the Shadow of Iran Diplomacy, Pakistan Bulldozes Hundreds of Homes of the Poor</h3>
+                    <div class="card-meta"><span class="pub">Zeteo</span> &middot; April 2026</div>
+                </div>
+            </a>
 
             <a class="card" href="https://www.geo.tv/latest/599346-will-evs-help-clean-pakistans-air-or-just-shift-pollution-elsewhere">
                 <div class="card-img"><img src="images/evs-pakistan.jpg" alt="Will EVs help clean Pakistan's air?"></div>
@@ -967,6 +987,22 @@ document.querySelectorAll('nav a').forEach(link => {
             }
         }
     });
+});
+
+document.querySelectorAll('.section').forEach(section => {
+    const grid = section.querySelector('.card-grid, .repo-grid, .embed-grid');
+    if (!grid) return;
+    const cards = Array.from(grid.children);
+    if (cards.length <= 4) return;
+    cards.slice(4).forEach(c => c.classList.add('card-hidden'));
+    const btn = document.createElement('button');
+    btn.className = 'show-more-btn';
+    btn.textContent = 'see more';
+    btn.addEventListener('click', () => {
+        const expanded = section.classList.toggle('expanded');
+        btn.textContent = expanded ? 'see less' : 'see more';
+    });
+    section.appendChild(btn);
 });
 
 const sections = document.querySelectorAll('.section');
